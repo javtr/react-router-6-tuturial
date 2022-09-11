@@ -9,8 +9,8 @@ export default function Layout() {
         <Link to="user" >User</Link> | {" "}
         <Link to="acount" >Acount</Link> | {" "}
         <Link to="profile" >Profile</Link> 
-        
       </nav>
+      
       <Outlet />
     </div>
   );
