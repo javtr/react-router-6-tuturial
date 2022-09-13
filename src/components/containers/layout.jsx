@@ -3,7 +3,7 @@ import { Link,Outlet } from "react-router-dom";
 
 export default function Layout() {
   return (
-    <div>
+    <div style={{padding:"10px 35px"}}>
       <nav>
         <Link to="home" >Home</Link> | {" "}
         <Link to="user" >User</Link> | {" "}
