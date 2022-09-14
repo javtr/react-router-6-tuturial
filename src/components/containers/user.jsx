@@ -1,11 +1,12 @@
 import React from "react";
-import { Link, Outlet, useSearchParams } from "react-router-dom";
+import { Link, Outlet, useSearchParams,NavLink, useLocation } from "react-router-dom";
 import { getAllUsers } from "../../users_data";
 
 export default function User() {
   const users = getAllUsers();
   const [searchParams, setSearchParams] = useSearchParams();
   const filterValue = searchParams.get("filter") ?? "";
+  const location = useLocation();
 
   function handleSearck(e) {
     setSearchParams({ filter: e.target.value });
@@ -37,7 +38,8 @@ export default function User() {
             .map((user) => (
               <li key={user.id}>
                 <h3>
-                  <Link to={user.id.toString()}>{user.name}</Link>
+                  <NavLink  style={({isActive})=>(isActive? {color: 'red'}:{})} 
+                  to={user.id.toString() + location.search}>{user.name}</NavLink>
                 </h3>
               </li>
             ))}
